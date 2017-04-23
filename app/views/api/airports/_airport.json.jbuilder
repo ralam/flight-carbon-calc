@@ -1,0 +1,1 @@
+json.extract! airport, :iata, :latitude, :longitude
