@@ -1,7 +1,7 @@
 class Api::AirportsController < ApplicationController
   def show
     puts params
-    @airport = Airport.find_by({iata: params[:id]})
+    @airport = Airport.find(airport_params[:id])
     if @airport
       render :show
     else 
@@ -11,5 +11,9 @@ class Api::AirportsController < ApplicationController
 
   def index
     @airports = Airport.all
+  end
+
+  def airport_params
+    params.permit(:id)
   end
 end

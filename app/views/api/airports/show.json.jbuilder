@@ -1,1 +1,1 @@
-json.partial! "api/airports/airport", airport: @airport
+json.extract! @airport, :iata, :latitude, :longitude
