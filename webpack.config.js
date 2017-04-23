@@ -2,7 +2,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: './frontend/diary_redux.jsx',
+  entry: './frontend/entry.jsx',
   output: {
     filename: './assets/javascripts/bundle.js',
   },
