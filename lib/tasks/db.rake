@@ -6,7 +6,7 @@ namespace :db do
     File.foreach("./airports.csv") do |csv_line|
     # CSV.foreach("./airports.csv", :headers => false) do |row|
       row = CSV.parse(csv_line.gsub('\"', '""')).first
-      next if row[4] == "\\N"
+      next if row[4] == "\\N" || row[4] == ""
 
       Airport.create!({
         airport_id: row[0],

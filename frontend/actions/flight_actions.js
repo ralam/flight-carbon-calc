@@ -12,8 +12,3 @@ export const recieveFlights = flightCodes => ({
     type: RECEIVE_FLIGHTS,
     flightCodes
 });
-
-export const getRoute = flightCode => dispatch => (
-    IATAAPIUtil.getRoute(flightCode)
-        .then(respone => console.log(response.response))
-);

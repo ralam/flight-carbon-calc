@@ -1,12 +1,17 @@
-export const getAirportFromCode = code => {
+export const getRoute = (originId, destinationId) => {
+    return Promise.all([getAirport(originId), getAirport(destinationId)]);
+}
+
+export const getAirports = () => {
     return $.ajax({
         method: 'GET',
-        url: '/',
-        data: code
+        url: '/api/airports'
     });
 };
 
-export const getRoute = (originCode, destinationCode) => {
-    return Promise.all([getAirportFromCode(originCode), getAirportFromCode(destinationCode)]);
-}
-
+export const getAirport = id => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/airports/${id}`
+    });
+};
