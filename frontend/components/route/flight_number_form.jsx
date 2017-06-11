@@ -52,12 +52,14 @@ class FlightNumberForm extends React.Component{
             );
         });
         return(
-            <div className='inputForm'>
-                <div className='inputs'>
+            <div>
+                <div>
                     { inputs }
                 </div>
-                <button onClick={ this.add } className='inputButton'>+</button>
-                <button onClick={ this.handleSubmit } className='inputButton'>Submit</button>
+                <div>
+                    <button onClick={ this.add } className='inputButton'>+</button>
+                    <button onClick={ this.handleSubmit } className='inputButton'>Submit</button>
+                </div>
             </div>
         )
     }
