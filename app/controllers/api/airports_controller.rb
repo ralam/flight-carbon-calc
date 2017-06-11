@@ -1,7 +1,6 @@
 class Api::AirportsController < ApplicationController
   def show
-    puts params
-    @airport = Airport.find(params[:id])
+    @airport = Airport.find({iata: params[:id]})
     if @airport
       render :show
     else 
