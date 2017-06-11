@@ -15,3 +15,14 @@ export const getAirport = id => {
         url: `/api/airports/${id}`
     });
 };
+
+export const getFlightDistances = flightNumbers => {
+    return Promise.all(flightNumbers.map(flightNumber => getFlightDistance(flightNumber)))
+};
+
+export const getFlightDistance = flightNumber => {
+    return $.ajax({
+        method: 'GET',
+        url: `/api/flights/${flightNumber}`
+    });
+};

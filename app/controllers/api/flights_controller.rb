@@ -20,5 +20,4 @@ class Api::FlightsController < ApplicationController
       render json: {errors: "No flight found"}, status: 404
     end
   end
-  
 end
