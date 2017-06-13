@@ -15,7 +15,7 @@ class Api::FlightsController < ApplicationController
         destination["latitude"],
         destination["longitude"])
       
-      render json: {distance: distance.to_miles}
+      render json: {distance: distance.to_miles.round(2)}
     else
       render json: {errors: "No flight found"}, status: 404
     end

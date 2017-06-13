@@ -8,9 +8,9 @@ import FlightNumberFormContainer from './route/flight_number_form_container';
 const App = () => (
     <div className="app">
         <h1>Carbon Calculator</h1>
-        {/*<RouteFormContainer />
-        <RouteInfoContainer />*/}
+        {/*<RouteFormContainer />*/}
         <FlightNumberFormContainer />
+        <RouteInfoContainer />
     </div>
 );
 

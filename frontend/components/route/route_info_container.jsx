@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import RouteInfo from './route_info';
 
 const mapStateToProps = (state) => ({
-    route: state.route
+    distances: state.route.distances
 });
 
 export default connect(
