@@ -4,12 +4,14 @@ import RouteFormContainer from './route/route_form_container';
 import RouteInfoContainer from './route/route_info_container';
 import FlightNumberForm from './route/flight_number_form';
 import FlightNumberFormContainer from './route/flight_number_form_container';
+import ErrorListContainer from './error_list_container';
 
 const App = () => (
     <div className="app">
         <h1>Carbon Calculator</h1>
         {/*<RouteFormContainer />*/}
         <FlightNumberFormContainer />
+        <ErrorListContainer />
         <RouteInfoContainer />
     </div>
 );

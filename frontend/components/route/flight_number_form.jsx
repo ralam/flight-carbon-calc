@@ -6,12 +6,13 @@ class FlightNumberForm extends React.Component{
 
         this.state = {
             flightNumbers: [''],
-            inputs: [{ flightNumber: '' }]
+            errors: [],
         }
         this.add = this.add.bind(this);
         this.remove = this.remove.bind(this);
         this.updateFlightNumber = this.updateFlightNumber.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.createRemoveButton = this.createRemoveButton.bind(this);
     }
 
     updateFlightNumber(idx, e) {
@@ -32,10 +33,22 @@ class FlightNumberForm extends React.Component{
         this.setState({ flightNumbers: this.state.flightNumbers.filter((el, _idx) => _idx !== idx) });
     }
 
+    createRemoveButton(idx) {
+        if (idx === 0) {
+            return;
+        } else {
+            return <button onClick={ this.remove.bind(null, idx) }>-</button>
+        }
+    }
+
     handleSubmit() {
-        console.log(this.state.flightNumbers);
         const flightNumbers = this.state.flightNumbers;
-        this.props.getFlightDistances(flightNumbers);
+        if(flightNumbers.filter((number) => number === '').length > 0) {
+            this.setState({ errors: ['One or more flight number fields are blank']});
+        } else {
+            this.props.getFlightDistances(flightNumbers);
+            this.setState({ errors: []});
+        }
     }
 
     render() {
@@ -47,18 +60,23 @@ class FlightNumberForm extends React.Component{
                         value={ flightNumber }
                         onChange={ this.updateFlightNumber.bind(null, idx) }
                     />
-                    <button onClick={ this.remove.bind(null, idx) }>-</button>
+                    { this.createRemoveButton(idx) }
                 </div>
             );
         });
+        const errors = this.state.errors.map((error, idx) => { return(<div key={ idx }>{ error }</div>) });
         return(
             <div>
                 <div>
+                    Flight Number
                     { inputs }
                 </div>
                 <div>
                     <button onClick={ this.add } className='inputButton'>+</button>
-                    <button onClick={ this.handleSubmit } className='inputButton'>Submit</button>
+                    <button onClick={ this.handleSubmit } className='inputButton'>Calculate</button>
+                </div>
+                <div>
+                    { errors }
                 </div>
             </div>
         )

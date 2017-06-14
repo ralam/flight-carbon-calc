@@ -4,7 +4,7 @@ import flightNumberForm from './flight_number_form';
 import { getFlightDistances } from '../../actions/route_actions';
 
 const mapStateToProps = state => ({
-
+    
 });
 
 const mapDispatchToProps = dispatch => ({
