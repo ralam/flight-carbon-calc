@@ -15,7 +15,8 @@ const routeReducer = (state = {}, action) => {
             return(merge({}, state, { distances: distances }));
         case CLEAR_ROUTE_DISTANCES:
             let newState = merge({}, state, { distances: [] });
-            return(merge({}, state, { distances: [] }));
+            delete newState.distances
+            return(newState);
         default:
             return state;
     }

@@ -44,10 +44,9 @@ class FlightNumberForm extends React.Component{
     handleSubmit() {
         const flightNumbers = this.state.flightNumbers;
         if(flightNumbers.filter((number) => number === '').length > 0) {
-            this.setState({ errors: ['One or more flight number fields are blank']});
+            this.props.receiveErrors(['One or more flight number fields are blank']);
         } else {
             this.props.getFlightDistances(flightNumbers);
-            this.setState({ errors: []});
         }
     }
 
@@ -74,9 +73,6 @@ class FlightNumberForm extends React.Component{
                 <div>
                     <button onClick={ this.add } className='inputButton'>+</button>
                     <button onClick={ this.handleSubmit } className='inputButton'>Calculate</button>
-                </div>
-                <div>
-                    { errors }
                 </div>
             </div>
         )
