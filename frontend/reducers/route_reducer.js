@@ -1,7 +1,6 @@
 import merge from 'lodash/merge';
 
 import { RECEIVE_ROUTE, RECEIVE_ROUTE_DISTANCES, CLEAR_ROUTE_DISTANCES } from '../actions/route_actions';
-// import { calculateDistance } from '../util/route_util';
 
 const routeReducer = (state = {}, action) => {
     Object.freeze(state);

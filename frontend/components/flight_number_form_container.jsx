@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
 import flightNumberForm from './flight_number_form';
-import { getFlightDistances } from '../../actions/route_actions';
-import { receiveErrors } from '../../actions/error_actions';
+import { getFlightDistances } from '../actions/route_actions';
+import { receiveErrors } from '../actions/error_actions';
 
 const mapStateToProps = state => ({});
 
