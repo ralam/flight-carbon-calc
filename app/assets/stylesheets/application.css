@@ -24,3 +24,7 @@ body {
 .app {
     text-align: center;
 }
+
+.btn-input {
+    width: 40px;
+}

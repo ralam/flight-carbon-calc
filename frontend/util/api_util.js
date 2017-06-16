@@ -17,7 +17,7 @@ export const getAirport = id => {
 };
 
 export const getFlightDistances = flightNumbers => {
-    return Promise.all(flightNumbers.map(flightNumber => getFlightDistance(flightNumber)))
+    return Promise.all(flightNumbers.map(flightNumber => getFlightDistance(flightNumber)));
 };
 
 export const getFlightDistance = flightNumber => {

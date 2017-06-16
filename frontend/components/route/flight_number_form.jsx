@@ -12,7 +12,7 @@ class FlightNumberForm extends React.Component{
         this.remove = this.remove.bind(this);
         this.updateFlightNumber = this.updateFlightNumber.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.createRemoveButton = this.createRemoveButton.bind(this);
+        this.addButton = this.addButton.bind(this);
     }
 
     updateFlightNumber(idx, e) {
@@ -33,11 +33,11 @@ class FlightNumberForm extends React.Component{
         this.setState({ flightNumbers: this.state.flightNumbers.filter((el, _idx) => _idx !== idx) });
     }
 
-    createRemoveButton(idx) {
+    addButton(idx) {
         if (idx === 0) {
-            return;
+            return <button onClick={ this.add } className='btn-input' >+</button>
         } else {
-            return <button onClick={ this.remove.bind(null, idx) }>-</button>
+            return <button onClick={ this.remove.bind(null, idx)} className='btn-input' >-</button>
         }
     }
 
@@ -58,8 +58,9 @@ class FlightNumberForm extends React.Component{
                         type='text'
                         value={ flightNumber }
                         onChange={ this.updateFlightNumber.bind(null, idx) }
+                        placeholder={ idx === 0 ? 'Try \'UA1\'' : '' }
                     />
-                    { this.createRemoveButton(idx) }
+                    { this.addButton(idx) }
                 </div>
             );
         });
@@ -67,12 +68,11 @@ class FlightNumberForm extends React.Component{
         return(
             <div>
                 <div>
-                    Flight Number
+                    Flight Numbers:
                     { inputs }
                 </div>
                 <div>
-                    <button onClick={ this.add } className='inputButton'>+</button>
-                    <button onClick={ this.handleSubmit } className='inputButton'>Calculate</button>
+                    <button onClick={ this.handleSubmit } className='btn-calculate'>Calculate</button>
                 </div>
             </div>
         )
