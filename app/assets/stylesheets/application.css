@@ -21,10 +21,35 @@ body {
     font-family: sans-serif;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 .app {
     text-align: center;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .btn-input {
     width: 40px;
+}
+
+.error {
+    color: red;
+    padding: 10px;
+}
+
+.container-error {
+    border: 5px solid red;
+    border-radius: 3px;
+    width: 70%;
+    margin: 20px auto;
+}
+
+.container-error p {
+    margin: 0;
+    padding: 10px;
 }

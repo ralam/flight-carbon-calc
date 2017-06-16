@@ -15,7 +15,7 @@ class ErrorList extends React.Component{
     render() {
         let errors;
         if (this.props.errors.length > 0) {
-            errors = <div><p>Errors:</p><ul>{ this.listErrors() }</ul></div>
+            errors = <div className='container-error'><p>Please correct the following errors:</p><ul>{ this.listErrors() }</ul></div>
         }
         return(
             <div>
